@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdenlive
-Version  : 20.04.2
-Release  : 16
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kdenlive-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kdenlive-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kdenlive-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 17
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kdenlive-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kdenlive-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kdenlive-20.08.0.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -102,15 +102,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-20.04.2
-cd %{_builddir}/kdenlive-20.04.2
+%setup -q -n kdenlive-20.08.0
+cd %{_builddir}/kdenlive-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592975156
+export SOURCE_DATE_EPOCH=1597779849
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,11 +123,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592975156
+export SOURCE_DATE_EPOCH=1597779849
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kdenlive-20.04.2/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
+cp %{_builddir}/kdenlive-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kdenlive-20.08.0/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
 pushd clr-build
 %make_install
 popd
@@ -256,6 +256,7 @@ popd
 /usr/share/kdenlive/effects/dust.xml
 /usr/share/kdenlive/effects/dynamic_loudness.xml
 /usr/share/kdenlive/effects/dynamictext.xml
+/usr/share/kdenlive/effects/equalizer.xml
 /usr/share/kdenlive/effects/fade_from_black.xml
 /usr/share/kdenlive/effects/fade_to_black.xml
 /usr/share/kdenlive/effects/fadein.xml
@@ -397,6 +398,7 @@ popd
 /usr/share/kdenlive/generators/count.xml
 /usr/share/kdenlive/generators/frei0r_test_pat_b.xml
 /usr/share/kdenlive/generators/noise.xml
+/usr/share/kdenlive/kdenlivedefaultlayouts.rc
 /usr/share/kdenlive/kdenliveeffectscategory.rc
 /usr/share/kdenlive/kdenlivetranscodingrc
 /usr/share/kdenlive/lumas/HD/bi-linear_x.pgm
@@ -447,6 +449,7 @@ popd
 /usr/share/kdenlive/profiles/dci_2160p_50
 /usr/share/kdenlive/profiles/dci_2160p_5994
 /usr/share/kdenlive/profiles/dci_2160p_60
+/usr/share/kdenlive/shortcuts/Premiere
 /usr/share/kdenlive/timeline_athumbs.png
 /usr/share/kdenlive/timeline_avthumbs.png
 /usr/share/kdenlive/timeline_nothumbs.png
@@ -481,12 +484,9 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/doc/HTML/ca/kdenlive/index.cache.bz2
 /usr/share/doc/HTML/ca/kdenlive/index.docbook
-/usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-overlap-clips.png
 /usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-renderer.png
-/usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-resize-marker.png
 /usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-save-project.png
 /usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-timeline-clips.png
-/usr/share/doc/HTML/ca/kdenlive/kdenlive_quickstart-timelinecursor.png
 /usr/share/doc/HTML/de/kdenlive/index.cache.bz2
 /usr/share/doc/HTML/de/kdenlive/index.docbook
 /usr/share/doc/HTML/de/kdenlive/kdenlive_quickstart-add-clips.png
