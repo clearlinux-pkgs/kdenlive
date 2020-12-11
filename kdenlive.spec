@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdenlive
-Version  : 20.08.3
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/kdenlive-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/kdenlive-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/kdenlive-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/kdenlive-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kdenlive-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kdenlive-20.12.0.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -102,15 +102,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-20.08.3
-cd %{_builddir}/kdenlive-20.08.3
+%setup -q -n kdenlive-20.12.0
+cd %{_builddir}/kdenlive-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604600661
+export SOURCE_DATE_EPOCH=1607715030
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,11 +123,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604600661
+export SOURCE_DATE_EPOCH=1607715030
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kdenlive-20.08.3/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
+cp %{_builddir}/kdenlive-20.12.0/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kdenlive-20.12.0/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
 pushd clr-build
 %make_install
 popd
@@ -199,6 +199,7 @@ popd
 /usr/share/icons/hicolor/64x64/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/64x64/apps/kdenlive.png
 /usr/share/icons/hicolor/64x64/mimetypes/application-x-kdenlivetitle.png
+/usr/share/icons/hicolor/scalable/actions/kdenlive-add-subtitle.svg
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-bottom.svgz
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-hor.svgz
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-left.svgz
@@ -240,12 +241,95 @@ popd
 /usr/share/kdenlive/effects/aecho.xml
 /usr/share/kdenlive/effects/agate.xml
 /usr/share/kdenlive/effects/audiobalance.xml
+/usr/share/kdenlive/effects/audiomap.xml
 /usr/share/kdenlive/effects/audiopan.xml
 /usr/share/kdenlive/effects/audiospectrum.xml
 /usr/share/kdenlive/effects/audiowave.xml
 /usr/share/kdenlive/effects/audiowaveform.xml
 /usr/share/kdenlive/effects/automask.xml
+/usr/share/kdenlive/effects/avfilter_atadenoise.xml
+/usr/share/kdenlive/effects/avfilter_avgblur.xml
+/usr/share/kdenlive/effects/avfilter_boxblur.xml
+/usr/share/kdenlive/effects/avfilter_bwdif.xml
+/usr/share/kdenlive/effects/avfilter_chromahold.xml
+/usr/share/kdenlive/effects/avfilter_chromashift.xml
+/usr/share/kdenlive/effects/avfilter_colorbalance.xml
+/usr/share/kdenlive/effects/avfilter_colorchannelmixer.xml
+/usr/share/kdenlive/effects/avfilter_colorhold.xml
+/usr/share/kdenlive/effects/avfilter_colorlevels.xml
+/usr/share/kdenlive/effects/avfilter_colormatrix.xml
+/usr/share/kdenlive/effects/avfilter_colorspace.xml
+/usr/share/kdenlive/effects/avfilter_datascope.xml
+/usr/share/kdenlive/effects/avfilter_dctdnoiz.xml
+/usr/share/kdenlive/effects/avfilter_deband.xml
+/usr/share/kdenlive/effects/avfilter_deblock.xml
+/usr/share/kdenlive/effects/avfilter_dedot.xml
+/usr/share/kdenlive/effects/avfilter_deflate.xml
+/usr/share/kdenlive/effects/avfilter_delogo.xml
+/usr/share/kdenlive/effects/avfilter_derain.xml
+/usr/share/kdenlive/effects/avfilter_despill.xml
+/usr/share/kdenlive/effects/avfilter_dilation.xml
+/usr/share/kdenlive/effects/avfilter_doubleweave.xml
+/usr/share/kdenlive/effects/avfilter_drawbox.xml
+/usr/share/kdenlive/effects/avfilter_drawgrid.xml
+/usr/share/kdenlive/effects/avfilter_edgedetect.xml
+/usr/share/kdenlive/effects/avfilter_elbg.xml
+/usr/share/kdenlive/effects/avfilter_eq.xml
+/usr/share/kdenlive/effects/avfilter_equalizer.xml
+/usr/share/kdenlive/effects/avfilter_erosion.xml
+/usr/share/kdenlive/effects/avfilter_fftdnoiz.xml
+/usr/share/kdenlive/effects/avfilter_fftfilt.xml
+/usr/share/kdenlive/effects/avfilter_field.xml
+/usr/share/kdenlive/effects/avfilter_fieldorder.xml
+/usr/share/kdenlive/effects/avfilter_fillborders.xml
+/usr/share/kdenlive/effects/avfilter_framestep.xml
+/usr/share/kdenlive/effects/avfilter_fspp.xml
+/usr/share/kdenlive/effects/avfilter_gblur.xml
+/usr/share/kdenlive/effects/avfilter_graphmonitor.xml
+/usr/share/kdenlive/effects/avfilter_hflip.xml
+/usr/share/kdenlive/effects/avfilter_histeq.xml
+/usr/share/kdenlive/effects/avfilter_histogram.xml
+/usr/share/kdenlive/effects/avfilter_hqdn3d.xml
+/usr/share/kdenlive/effects/avfilter_hqx.xml
+/usr/share/kdenlive/effects/avfilter_il.xml
+/usr/share/kdenlive/effects/avfilter_inflate.xml
+/usr/share/kdenlive/effects/avfilter_kerneldeint.xml
+/usr/share/kdenlive/effects/avfilter_lagfun.xml
+/usr/share/kdenlive/effects/avfilter_lenscorrection.xml
+/usr/share/kdenlive/effects/avfilter_limiter.xml
 /usr/share/kdenlive/effects/avfilter_lut3d.xml
+/usr/share/kdenlive/effects/avfilter_mcdeint.xml
+/usr/share/kdenlive/effects/avfilter_negate.xml
+/usr/share/kdenlive/effects/avfilter_noise.xml
+/usr/share/kdenlive/effects/avfilter_normalize.xml
+/usr/share/kdenlive/effects/avfilter_phase.xml
+/usr/share/kdenlive/effects/avfilter_prewitt.xml
+/usr/share/kdenlive/effects/avfilter_random.xml
+/usr/share/kdenlive/effects/avfilter_removegrain.xml
+/usr/share/kdenlive/effects/avfilter_rgbashift.xml
+/usr/share/kdenlive/effects/avfilter_roberts.xml
+/usr/share/kdenlive/effects/avfilter_sab.xml
+/usr/share/kdenlive/effects/avfilter_selectivecolor.xml
+/usr/share/kdenlive/effects/avfilter_separatefields.xml
+/usr/share/kdenlive/effects/avfilter_setrange.xml
+/usr/share/kdenlive/effects/avfilter_shuffleplanes.xml
+/usr/share/kdenlive/effects/avfilter_smartblur.xml
+/usr/share/kdenlive/effects/avfilter_sobel.xml
+/usr/share/kdenlive/effects/avfilter_sr.xml
+/usr/share/kdenlive/effects/avfilter_stereo3D.xml
+/usr/share/kdenlive/effects/avfilter_tmix.xml
+/usr/share/kdenlive/effects/avfilter_transpose.xml
+/usr/share/kdenlive/effects/avfilter_unsharp.xml
+/usr/share/kdenlive/effects/avfilter_vaguedenoiser.xml
+/usr/share/kdenlive/effects/avfilter_vectorscope.xml
+/usr/share/kdenlive/effects/avfilter_vflip.xml
+/usr/share/kdenlive/effects/avfilter_vibrance.xml
+/usr/share/kdenlive/effects/avfilter_w3fdif.xml
+/usr/share/kdenlive/effects/avfilter_waveform.xml
+/usr/share/kdenlive/effects/avfilter_weave.xml
+/usr/share/kdenlive/effects/avfilter_xbr.xml
+/usr/share/kdenlive/effects/avfilter_yadif.xml
+/usr/share/kdenlive/effects/avfilter_zoompan.xml
 /usr/share/kdenlive/effects/boxblur.xml
 /usr/share/kdenlive/effects/brightness.xml
 /usr/share/kdenlive/effects/channelcopy.xml
@@ -253,6 +337,7 @@ popd
 /usr/share/kdenlive/effects/chroma.xml
 /usr/share/kdenlive/effects/chroma_hold.xml
 /usr/share/kdenlive/effects/crop.xml
+/usr/share/kdenlive/effects/dance.xml
 /usr/share/kdenlive/effects/dust.xml
 /usr/share/kdenlive/effects/dynamic_loudness.xml
 /usr/share/kdenlive/effects/dynamictext.xml
@@ -268,8 +353,16 @@ popd
 /usr/share/kdenlive/effects/frei0r_balanc0r.xml
 /usr/share/kdenlive/effects/frei0r_baltan.xml
 /usr/share/kdenlive/effects/frei0r_bezier_curves.xml
+/usr/share/kdenlive/effects/frei0r_bgsubtract0r.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_eq_mask.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_eq_to_rect.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_hemi_to_eq.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_rect_to_eq.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_stabilize_360.xml
+/usr/share/kdenlive/effects/frei0r_bigsh0t_transform_360.xml
 /usr/share/kdenlive/effects/frei0r_brightness.xml
 /usr/share/kdenlive/effects/frei0r_c0rners.xml
+/usr/share/kdenlive/effects/frei0r_cairoimagegrid.xml
 /usr/share/kdenlive/effects/frei0r_cartoon.xml
 /usr/share/kdenlive/effects/frei0r_cluster.xml
 /usr/share/kdenlive/effects/frei0r_colgate.xml
@@ -311,6 +404,7 @@ popd
 /usr/share/kdenlive/effects/frei0r_primaries.xml
 /usr/share/kdenlive/effects/frei0r_rgbnoise.xml
 /usr/share/kdenlive/effects/frei0r_rgbparade.xml
+/usr/share/kdenlive/effects/frei0r_rgbsplit0r.xml
 /usr/share/kdenlive/effects/frei0r_saturat0r.xml
 /usr/share/kdenlive/effects/frei0r_scale0tilt.xml
 /usr/share/kdenlive/effects/frei0r_scanline0r.xml
@@ -337,12 +431,15 @@ popd
 /usr/share/kdenlive/effects/greyscale.xml
 /usr/share/kdenlive/effects/invert.xml
 /usr/share/kdenlive/effects/lift_gamma_gain.xml
+/usr/share/kdenlive/effects/lightshow.xml
 /usr/share/kdenlive/effects/loudness.xml
 /usr/share/kdenlive/effects/luma.xml
 /usr/share/kdenlive/effects/mirror.xml
+/usr/share/kdenlive/effects/mono.xml
 /usr/share/kdenlive/effects/movit_blur.xml
 /usr/share/kdenlive/effects/movit_deconvolution_sharpen.xml
 /usr/share/kdenlive/effects/movit_diffusion.xml
+/usr/share/kdenlive/effects/movit_flip.xml
 /usr/share/kdenlive/effects/movit_glow.xml
 /usr/share/kdenlive/effects/movit_lift_gamma_gain.xml
 /usr/share/kdenlive/effects/movit_mirror.xml
@@ -357,6 +454,7 @@ popd
 /usr/share/kdenlive/effects/obscure.xml
 /usr/share/kdenlive/effects/oldfilm.xml
 /usr/share/kdenlive/effects/pan_zoom.xml
+/usr/share/kdenlive/effects/pillar_echo.xml
 /usr/share/kdenlive/effects/qtblend.xml
 /usr/share/kdenlive/effects/qtcrop.xml
 /usr/share/kdenlive/effects/region.xml
@@ -364,7 +462,6 @@ popd
 /usr/share/kdenlive/effects/rotation_keyframable.xml
 /usr/share/kdenlive/effects/rotoscoping.xml
 /usr/share/kdenlive/effects/scratchlines.xml
-/usr/share/kdenlive/effects/selectivecolor.xml
 /usr/share/kdenlive/effects/sepia.xml
 /usr/share/kdenlive/effects/shape.xml
 /usr/share/kdenlive/effects/sox_band.xml
@@ -380,7 +477,6 @@ popd
 /usr/share/kdenlive/effects/tcolor.xml
 /usr/share/kdenlive/effects/threshold.xml
 /usr/share/kdenlive/effects/tracker.xml
-/usr/share/kdenlive/effects/unsharp.xml
 /usr/share/kdenlive/effects/update/frei0r.balanc0r.js
 /usr/share/kdenlive/effects/update/frei0r.cartoon.js
 /usr/share/kdenlive/effects/update/frei0r.curves.js
@@ -441,7 +537,6 @@ popd
 /usr/share/kdenlive/meta_ffmpeg.png
 /usr/share/kdenlive/meta_libav.png
 /usr/share/kdenlive/meta_magiclantern.png
-/usr/share/kdenlive/metadata.properties
 /usr/share/kdenlive/profiles/dci_2160p_2398
 /usr/share/kdenlive/profiles/dci_2160p_24
 /usr/share/kdenlive/profiles/dci_2160p_25
