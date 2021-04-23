@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 20.12.3
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/kdenlive-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/kdenlive-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/kdenlive-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/kdenlive-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kdenlive-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kdenlive-21.04.0.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -102,15 +102,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-20.12.3
-cd %{_builddir}/kdenlive-20.12.3
+%setup -q -n kdenlive-21.04.0
+cd %{_builddir}/kdenlive-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618669668
+export SOURCE_DATE_EPOCH=1619211785
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,11 +123,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618669668
+export SOURCE_DATE_EPOCH=1619211785
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kdenlive-20.12.3/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
+cp %{_builddir}/kdenlive-21.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kdenlive-21.04.0/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
 pushd clr-build
 %make_install
 popd
@@ -148,6 +148,7 @@ popd
 /usr/share/icons/hicolor/128x128/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/128x128/apps/kdenlive.png
 /usr/share/icons/hicolor/128x128/mimetypes/application-x-kdenlivetitle.png
+/usr/share/icons/hicolor/16x16/actions/add-subtitle.svg
 /usr/share/icons/hicolor/16x16/actions/kdenlive-add-clip.png
 /usr/share/icons/hicolor/16x16/actions/kdenlive-add-color-clip.png
 /usr/share/icons/hicolor/16x16/actions/kdenlive-add-slide-clip.png
@@ -186,9 +187,25 @@ popd
 /usr/share/icons/hicolor/16x16/actions/kdenlive-zindex-up.png
 /usr/share/icons/hicolor/16x16/actions/kdenlive-zone-end.png
 /usr/share/icons/hicolor/16x16/actions/kdenlive-zone-start.png
+/usr/share/icons/hicolor/16x16/actions/keyframe-add.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-disable.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-duplicate.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-next.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-previous.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-record.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe-remove.svg
+/usr/share/icons/hicolor/16x16/actions/keyframe.svg
 /usr/share/icons/hicolor/16x16/apps/kdenlive.png
 /usr/share/icons/hicolor/22x22/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/22x22/actions/kdenlive-spacer-tool.png
+/usr/share/icons/hicolor/22x22/actions/keyframe-add.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-disable.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-duplicate.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-next.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-previous.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-record.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe-remove.svg
+/usr/share/icons/hicolor/22x22/actions/keyframe.svg
 /usr/share/icons/hicolor/22x22/apps/kdenlive.png
 /usr/share/icons/hicolor/256x256/apps/kdenlive.png
 /usr/share/icons/hicolor/32x32/actions/kdenlive-select-all.png
@@ -199,7 +216,7 @@ popd
 /usr/share/icons/hicolor/64x64/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/64x64/apps/kdenlive.png
 /usr/share/icons/hicolor/64x64/mimetypes/application-x-kdenlivetitle.png
-/usr/share/icons/hicolor/scalable/actions/kdenlive-add-subtitle.svg
+/usr/share/icons/hicolor/scalable/actions/add-subtitle.svg
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-bottom.svgz
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-hor.svgz
 /usr/share/icons/hicolor/scalable/actions/kdenlive-align-left.svgz
@@ -545,6 +562,14 @@ popd
 /usr/share/kdenlive/profiles/dci_2160p_50
 /usr/share/kdenlive/profiles/dci_2160p_5994
 /usr/share/kdenlive/profiles/dci_2160p_60
+/usr/share/kdenlive/resourceproviders/archiveorg.json
+/usr/share/kdenlive/resourceproviders/freesound.json
+/usr/share/kdenlive/resourceproviders/pexels_photo.json
+/usr/share/kdenlive/resourceproviders/pexels_video.json
+/usr/share/kdenlive/resourceproviders/pixabay_photo.json
+/usr/share/kdenlive/scripts/checkvosk.py
+/usr/share/kdenlive/scripts/speech.py
+/usr/share/kdenlive/scripts/speechtotext.py
 /usr/share/kdenlive/shortcuts/Premiere
 /usr/share/kdenlive/timeline_athumbs.png
 /usr/share/kdenlive/timeline_avthumbs.png
@@ -566,6 +591,7 @@ popd
 /usr/share/kdenlive/transitions/wipe.xml
 /usr/share/knotifications5/kdenlive.notifyrc
 /usr/share/knsrcfiles/kdenlive_keyboardschemes.knsrc
+/usr/share/knsrcfiles/kdenlive_luts.knsrc
 /usr/share/knsrcfiles/kdenlive_renderprofiles.knsrc
 /usr/share/knsrcfiles/kdenlive_titles.knsrc
 /usr/share/knsrcfiles/kdenlive_wipes.knsrc

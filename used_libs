@@ -35,6 +35,7 @@ libQt5DBus.so.5
 libQt5Gui.so.5
 libQt5Multimedia.so.5
 libQt5Network.so.5
+libQt5NetworkAuth.so.5
 libQt5Qml.so.5
 libQt5Quick.so.5
 libQt5QuickControls2.so.5
@@ -46,5 +47,4 @@ libc.so.6
 libm.so.6
 libmlt++.so.3
 libmlt.so.6
-librttr_core.so.0.9.6
 libstdc++.so.6
