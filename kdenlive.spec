@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 21.04.1
-Release  : 24
-URL      : https://download.kde.org/stable/release-service/21.04.1/src/kdenlive-21.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.1/src/kdenlive-21.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.1/src/kdenlive-21.04.1.tar.xz.sig
+Version  : 21.04.2
+Release  : 25
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/kdenlive-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/kdenlive-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/kdenlive-21.04.2.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -102,15 +102,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-21.04.1
-cd %{_builddir}/kdenlive-21.04.1
+%setup -q -n kdenlive-21.04.2
+cd %{_builddir}/kdenlive-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623169902
+export SOURCE_DATE_EPOCH=1623378943
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,11 +123,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623169902
+export SOURCE_DATE_EPOCH=1623378943
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-21.04.1/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kdenlive-21.04.1/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
+cp %{_builddir}/kdenlive-21.04.2/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kdenlive-21.04.2/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
 pushd clr-build
 %make_install
 popd
@@ -400,6 +400,7 @@ popd
 /usr/share/kdenlive/effects/frei0r_facebl0r.xml
 /usr/share/kdenlive/effects/frei0r_facedetect.xml
 /usr/share/kdenlive/effects/frei0r_flippo.xml
+/usr/share/kdenlive/effects/frei0r_glitch0r.xml
 /usr/share/kdenlive/effects/frei0r_glow.xml
 /usr/share/kdenlive/effects/frei0r_hqdn3d.xml
 /usr/share/kdenlive/effects/frei0r_hueshift0r.xml
@@ -450,6 +451,7 @@ popd
 /usr/share/kdenlive/effects/lightshow.xml
 /usr/share/kdenlive/effects/loudness.xml
 /usr/share/kdenlive/effects/luma.xml
+/usr/share/kdenlive/effects/lumaliftgaingamma.xml
 /usr/share/kdenlive/effects/mirror.xml
 /usr/share/kdenlive/effects/mono.xml
 /usr/share/kdenlive/effects/movit_blur.xml
