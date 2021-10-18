@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 21.08.1
-Release  : 26
-URL      : https://download.kde.org/stable/release-service/21.08.1/src/kdenlive-21.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.08.1/src/kdenlive-21.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.08.1/src/kdenlive-21.08.1.tar.xz.sig
+Version  : 21.08.2
+Release  : 27
+URL      : https://download.kde.org/stable/release-service/21.08.2/src/kdenlive-21.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.2/src/kdenlive-21.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.2/src/kdenlive-21.08.2.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0
@@ -103,8 +103,8 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-21.08.1
-cd %{_builddir}/kdenlive-21.08.1
+%setup -q -n kdenlive-21.08.2
+cd %{_builddir}/kdenlive-21.08.2
 %patch1 -p1
 
 %build
@@ -112,7 +112,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630911469
+export SOURCE_DATE_EPOCH=1634575652
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,11 +125,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1630911469
+export SOURCE_DATE_EPOCH=1634575652
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-21.08.1/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
-cp %{_builddir}/kdenlive-21.08.1/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
+cp %{_builddir}/kdenlive-21.08.2/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/b1c25bcf0e44653a0ab61b5e3a5b2841414d0033
+cp %{_builddir}/kdenlive-21.08.2/src/lib/external/kiss_fft/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/a46324c99fbefcdfe04c19a35296ad219a256efb
 pushd clr-build
 %make_install
 popd
@@ -315,6 +315,7 @@ popd
 /usr/share/kdenlive/effects/avfilter_lagfun.xml
 /usr/share/kdenlive/effects/avfilter_lenscorrection.xml
 /usr/share/kdenlive/effects/avfilter_limiter.xml
+/usr/share/kdenlive/effects/avfilter_loudnorm.xml
 /usr/share/kdenlive/effects/avfilter_lut3d.xml
 /usr/share/kdenlive/effects/avfilter_mcdeint.xml
 /usr/share/kdenlive/effects/avfilter_negate.xml
@@ -379,6 +380,7 @@ popd
 /usr/share/kdenlive/effects/frei0r_bigsh0t_transform_360.xml
 /usr/share/kdenlive/effects/frei0r_brightness.xml
 /usr/share/kdenlive/effects/frei0r_c0rners.xml
+/usr/share/kdenlive/effects/frei0r_cairogradient.xml
 /usr/share/kdenlive/effects/frei0r_cairoimagegrid.xml
 /usr/share/kdenlive/effects/frei0r_cartoon.xml
 /usr/share/kdenlive/effects/frei0r_cluster.xml
@@ -445,6 +447,7 @@ popd
 /usr/share/kdenlive/effects/frei0r_vignette.xml
 /usr/share/kdenlive/effects/gain.xml
 /usr/share/kdenlive/effects/gamma.xml
+/usr/share/kdenlive/effects/gpstext.xml
 /usr/share/kdenlive/effects/grain.xml
 /usr/share/kdenlive/effects/greyscale.xml
 /usr/share/kdenlive/effects/invert.xml
@@ -454,7 +457,9 @@ popd
 /usr/share/kdenlive/effects/luma.xml
 /usr/share/kdenlive/effects/lumaliftgaingamma.xml
 /usr/share/kdenlive/effects/mask_apply.xml
+/usr/share/kdenlive/effects/mask_start.xml
 /usr/share/kdenlive/effects/mask_start_frei0r_alphaspot.xml
+/usr/share/kdenlive/effects/mask_start_frei0r_select0r.xml
 /usr/share/kdenlive/effects/mask_start_rotoscoping.xml
 /usr/share/kdenlive/effects/mask_start_shape.xml
 /usr/share/kdenlive/effects/mirror.xml
