@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 21.12.3
-Release  : 30
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kdenlive-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kdenlive-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kdenlive-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 31
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
@@ -31,7 +31,6 @@ BuildRequires : pkg-config
 BuildRequires : pkgconfig(mlt++-7)
 BuildRequires : purpose-dev
 BuildRequires : qtbase-dev
-BuildRequires : qtbase-dev mesa-dev
 BuildRequires : rttr-dev
 BuildRequires : v4l-utils-dev
 
@@ -102,15 +101,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-21.12.3
-cd %{_builddir}/kdenlive-21.12.3
+%setup -q -n kdenlive-22.04.0
+cd %{_builddir}/kdenlive-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646551597
+export SOURCE_DATE_EPOCH=1650680904
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,20 +122,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646551597
+export SOURCE_DATE_EPOCH=1650680904
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kdenlive-21.12.3/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdenlive-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -154,43 +153,9 @@ popd
 %defattr(-,root,root,-)
 /usr/share/applications/org.kde.kdenlive.desktop
 /usr/share/config.kcfg/kdenlivesettings.kcfg
-/usr/share/icons/hicolor/128x128/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/128x128/apps/kdenlive.png
 /usr/share/icons/hicolor/128x128/mimetypes/application-x-kdenlivetitle.png
 /usr/share/icons/hicolor/16x16/actions/add-subtitle.svg
-/usr/share/icons/hicolor/16x16/actions/kdenlive-add-clip.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-add-color-clip.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-add-slide-clip.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-add-text-clip.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-custom-effect.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-deleffect.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-down.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-hide-audio.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-hide-video.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-insert-edit.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-insert-rect.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-insert-unicode.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-lock.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-menu.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-normal-edit.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-overwrite-edit.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-select-all.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-select-images.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-select-rects.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-select-texts.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-show-audio.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-show-audiothumb.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-show-markers.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-show-video.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-show-videothumb.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-snap.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-track_has_effect.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-unlock.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-unselect-all.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-up.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-zindex-up.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-zone-end.png
-/usr/share/icons/hicolor/16x16/actions/kdenlive-zone-start.png
 /usr/share/icons/hicolor/16x16/actions/keyframe-add.svg
 /usr/share/icons/hicolor/16x16/actions/keyframe-disable.svg
 /usr/share/icons/hicolor/16x16/actions/keyframe-duplicate.svg
@@ -200,7 +165,6 @@ popd
 /usr/share/icons/hicolor/16x16/actions/keyframe-remove.svg
 /usr/share/icons/hicolor/16x16/actions/keyframe.svg
 /usr/share/icons/hicolor/16x16/apps/kdenlive.png
-/usr/share/icons/hicolor/22x22/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/22x22/actions/keyframe-add.svg
 /usr/share/icons/hicolor/22x22/actions/keyframe-disable.svg
 /usr/share/icons/hicolor/22x22/actions/keyframe-duplicate.svg
@@ -211,40 +175,18 @@ popd
 /usr/share/icons/hicolor/22x22/actions/keyframe.svg
 /usr/share/icons/hicolor/22x22/apps/kdenlive.png
 /usr/share/icons/hicolor/256x256/apps/kdenlive.png
-/usr/share/icons/hicolor/32x32/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/32x32/apps/kdenlive.png
 /usr/share/icons/hicolor/32x32/mimetypes/application-x-kdenlivetitle.png
-/usr/share/icons/hicolor/48x48/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/48x48/apps/kdenlive.png
-/usr/share/icons/hicolor/64x64/actions/kdenlive-select-all.png
 /usr/share/icons/hicolor/64x64/apps/kdenlive.png
 /usr/share/icons/hicolor/64x64/mimetypes/application-x-kdenlivetitle.png
 /usr/share/icons/hicolor/scalable/actions/add-subtitle.svg
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-bottom.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-hor.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-left.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-none.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-right.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-top.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-align-vert.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-insert-rect.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-insert-unicode.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-select-all.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-select-images.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-select-rects.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-select-texts.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-show-all-effects.svg
-/usr/share/icons/hicolor/scalable/actions/kdenlive-unselect-all.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zindex-bottom.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zindex-down.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zindex-top.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zindex-up.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zone-end.svgz
-/usr/share/icons/hicolor/scalable/actions/kdenlive-zone-start.svgz
 /usr/share/icons/hicolor/scalable/apps/kdenlive.svgz
 /usr/share/icons/hicolor/scalable/mimetypes/application-x-kdenlive.svgz
 /usr/share/icons/hicolor/scalable/mimetypes/application-x-kdenlivetitle.svgz
 /usr/share/icons/hicolor/scalable/mimetypes/video-mlt-playlist.svgz
+/usr/share/kdenlive/effect-templates/secondary_color_correction.xml
+/usr/share/kdenlive/effect-templates/shut_off.xml
 /usr/share/kdenlive/effects/acompressor.xml
 /usr/share/kdenlive/effects/aecho.xml
 /usr/share/kdenlive/effects/agate.xml
@@ -604,6 +546,7 @@ popd
 /usr/share/kdenlive/luts/CINEMATIC.cube
 /usr/share/kdenlive/luts/GREEN_TINT.cube
 /usr/share/kdenlive/luts/TEAL_ORANGE.cube
+/usr/share/kdenlive/meta_magiclantern.png
 /usr/share/kdenlive/profiles/dci_2160p_2398
 /usr/share/kdenlive/profiles/dci_2160p_24
 /usr/share/kdenlive/profiles/dci_2160p_25
@@ -617,10 +560,12 @@ popd
 /usr/share/kdenlive/resourceproviders/pexels_photo.json
 /usr/share/kdenlive/resourceproviders/pexels_video.json
 /usr/share/kdenlive/resourceproviders/pixabay_photo.json
-/usr/share/kdenlive/scripts/checkvosk.py
+/usr/share/kdenlive/scripts/checkpackages.py
+/usr/share/kdenlive/scripts/otiointerface.py
 /usr/share/kdenlive/scripts/speech.py
 /usr/share/kdenlive/scripts/speechtotext.py
 /usr/share/kdenlive/shortcuts/Premiere
+/usr/share/kdenlive/slideanimations.rc
 /usr/share/kdenlive/titles/simple-scroll.kdenlivetitle
 /usr/share/kdenlive/titles/simple-with-date.kdenlivetitle
 /usr/share/kdenlive/titles/simple.kdenlivetitle
@@ -636,6 +581,7 @@ popd
 /usr/share/kdenlive/transitions/slide.xml
 /usr/share/kdenlive/transitions/wipe.xml
 /usr/share/knotifications5/kdenlive.notifyrc
+/usr/share/knsrcfiles/kdenlive_effects.knsrc
 /usr/share/knsrcfiles/kdenlive_keyboardschemes.knsrc
 /usr/share/knsrcfiles/kdenlive_luts.knsrc
 /usr/share/knsrcfiles/kdenlive_renderprofiles.knsrc
