@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 22.04.0
-Release  : 31
-URL      : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kdenlive-22.04.0.tar.xz.sig
+Version  : 22.04.1
+Release  : 32
+URL      : https://download.kde.org/stable/release-service/22.04.1/src/kdenlive-22.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.1/src/kdenlive-22.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.1/src/kdenlive-22.04.1.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
@@ -101,15 +101,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-22.04.0
-cd %{_builddir}/kdenlive-22.04.0
+%setup -q -n kdenlive-22.04.1
+cd %{_builddir}/kdenlive-22.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1650680904
+export SOURCE_DATE_EPOCH=1652671518
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -122,20 +122,20 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1650680904
+export SOURCE_DATE_EPOCH=1652671518
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
-cp %{_builddir}/kdenlive-22.04.0/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdenlive-22.04.1/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
+cp %{_builddir}/kdenlive-22.04.1/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
 pushd clr-build
 %make_install
 popd
@@ -308,6 +308,7 @@ popd
 /usr/share/kdenlive/effects/avfilter_xbr.xml
 /usr/share/kdenlive/effects/avfilter_yadif.xml
 /usr/share/kdenlive/effects/avfilter_zoompan.xml
+/usr/share/kdenlive/effects/box_blur.xml
 /usr/share/kdenlive/effects/boxblur.xml
 /usr/share/kdenlive/effects/brightness.xml
 /usr/share/kdenlive/effects/channelcopy.xml
