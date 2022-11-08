@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 22.08.2
-Release  : 37
-URL      : https://download.kde.org/stable/release-service/22.08.2/src/kdenlive-22.08.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.2/src/kdenlive-22.08.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.2/src/kdenlive-22.08.2.tar.xz.sig
+Version  : 22.08.3
+Release  : 38
+URL      : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
@@ -100,15 +100,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-22.08.2
-cd %{_builddir}/kdenlive-22.08.2
+%setup -q -n kdenlive-22.08.3
+cd %{_builddir}/kdenlive-22.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665769533
+export SOURCE_DATE_EPOCH=1667933729
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,7 +121,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1665769533
+export SOURCE_DATE_EPOCH=1667933729
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
 cp %{_builddir}/kdenlive-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863 || :
