@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 22.08.3
-Release  : 38
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/kdenlive-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 39
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/kdenlive-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/kdenlive-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/kdenlive-22.12.0.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
-License  : BSD-3-Clause GPL-2.0 GPL-3.0 LGPL-3.0
+License  : BSD-3-Clause CC0-1.0 GPL-2.0 GPL-3.0 LGPL-3.0
 Requires: kdenlive-bin = %{version}-%{release}
 Requires: kdenlive-data = %{version}-%{release}
 Requires: kdenlive-lib = %{version}-%{release}
@@ -100,15 +100,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-22.08.3
-cd %{_builddir}/kdenlive-22.08.3
+%setup -q -n kdenlive-22.12.0
+cd %{_builddir}/kdenlive-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667933729
+export SOURCE_DATE_EPOCH=1670545624
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,11 +121,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667933729
+export SOURCE_DATE_EPOCH=1670545624
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
-cp %{_builddir}/kdenlive-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863 || :
+cp %{_builddir}/kdenlive-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe || :
+cp %{_builddir}/kdenlive-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kdenlive/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284 || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284 || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
@@ -135,6 +136,8 @@ cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{b
 cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80 || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32 || :
 cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32 || :
+cp %{_builddir}/kdenlive-%{version}/README.md.license %{buildroot}/usr/share/package-licenses/kdenlive/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
+cp %{_builddir}/kdenlive-%{version}/packaging/flatpak/README.md.license %{buildroot}/usr/share/package-licenses/kdenlive/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
 pushd clr-build
 %make_install
 popd
@@ -479,7 +482,6 @@ popd
 /usr/share/kdenlive/effects/qtcrop.xml
 /usr/share/kdenlive/effects/rboctaveshift.xml
 /usr/share/kdenlive/effects/rbpitchscale.xml
-/usr/share/kdenlive/effects/region.xml
 /usr/share/kdenlive/effects/rotation.xml
 /usr/share/kdenlive/effects/rotation_keyframable.xml
 /usr/share/kdenlive/effects/rotoscoping.xml
@@ -588,13 +590,41 @@ popd
 /usr/share/kdenlive/transitions/affine.xml
 /usr/share/kdenlive/transitions/composite.xml
 /usr/share/kdenlive/transitions/dissolve.xml
+/usr/share/kdenlive/transitions/frei0r_addition.xml
+/usr/share/kdenlive/transitions/frei0r_addition_alpha.xml
+/usr/share/kdenlive/transitions/frei0r_alphaatop.xml
+/usr/share/kdenlive/transitions/frei0r_alphain.xml
+/usr/share/kdenlive/transitions/frei0r_alphaout.xml
+/usr/share/kdenlive/transitions/frei0r_alphaover.xml
+/usr/share/kdenlive/transitions/frei0r_alphaxor.xml
+/usr/share/kdenlive/transitions/frei0r_burn.xml
 /usr/share/kdenlive/transitions/frei0r_cairoaffineblend.xml
 /usr/share/kdenlive/transitions/frei0r_cairoblend.xml
+/usr/share/kdenlive/transitions/frei0r_color_only.xml
+/usr/share/kdenlive/transitions/frei0r_darken.xml
+/usr/share/kdenlive/transitions/frei0r_difference.xml
+/usr/share/kdenlive/transitions/frei0r_divide.xml
+/usr/share/kdenlive/transitions/frei0r_dodge.xml
+/usr/share/kdenlive/transitions/frei0r_grain_extract.xml
+/usr/share/kdenlive/transitions/frei0r_grain_merge.xml
+/usr/share/kdenlive/transitions/frei0r_hardlight.xml
+/usr/share/kdenlive/transitions/frei0r_hue.xml
+/usr/share/kdenlive/transitions/frei0r_lighten.xml
+/usr/share/kdenlive/transitions/frei0r_multiply.xml
+/usr/share/kdenlive/transitions/frei0r_overlay.xml
+/usr/share/kdenlive/transitions/frei0r_saturation.xml
+/usr/share/kdenlive/transitions/frei0r_screen.xml
+/usr/share/kdenlive/transitions/frei0r_softlight.xml
+/usr/share/kdenlive/transitions/frei0r_subtract.xml
+/usr/share/kdenlive/transitions/frei0r_uvmap.xml
+/usr/share/kdenlive/transitions/frei0r_value.xml
 /usr/share/kdenlive/transitions/luma.xml
+/usr/share/kdenlive/transitions/matte.xml
 /usr/share/kdenlive/transitions/mix.xml
 /usr/share/kdenlive/transitions/qtblend.xml
 /usr/share/kdenlive/transitions/region.xml
 /usr/share/kdenlive/transitions/slide.xml
+/usr/share/kdenlive/transitions/vqm.xml
 /usr/share/kdenlive/transitions/wipe.xml
 /usr/share/knotifications5/kdenlive.notifyrc
 /usr/share/knsrcfiles/kdenlive_effects.knsrc
@@ -709,6 +739,7 @@ popd
 /usr/share/doc/HTML/uk/kdenlive/kdenlive_quickstart-timelinecursor.png
 /usr/share/doc/Kdenlive/AUTHORS
 /usr/share/doc/Kdenlive/LICENSES/BSD-3-Clause.txt
+/usr/share/doc/Kdenlive/LICENSES/CC0-1.0.txt
 /usr/share/doc/Kdenlive/LICENSES/GPL-2.0-only.txt
 /usr/share/doc/Kdenlive/LICENSES/GPL-2.0-or-later.txt
 /usr/share/doc/Kdenlive/LICENSES/GPL-3.0-only.txt
@@ -720,14 +751,16 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/qt5/plugins/designer/kdenlivewidgets.so
 /usr/lib64/qt5/plugins/mltpreview.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kdenlive/0d05dfdba8abf9192a31ac7ef555a76c10744d80
-/usr/share/package-licenses/kdenlive/1ca5712138d3e2539ee8cdfdf3c1c5cb693f5863
 /usr/share/package-licenses/kdenlive/3cb34cfc72e87654683f2894299adf912d14b284
 /usr/share/package-licenses/kdenlive/49e61f7864169f2e356c11a17422d7d20d74b40f
+/usr/share/package-licenses/kdenlive/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+/usr/share/package-licenses/kdenlive/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
 /usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32
 /usr/share/package-licenses/kdenlive/f1946dab78e58c04c8c25ec6b074f5fc5c2830fe
