@@ -6,7 +6,7 @@
 #
 Name     : kdenlive
 Version  : 22.12.1
-Release  : 40
+Release  : 41
 URL      : https://download.kde.org/stable/release-service/22.12.1/src/kdenlive-22.12.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.1/src/kdenlive-22.12.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.1/src/kdenlive-22.12.1.tar.xz.sig
@@ -32,9 +32,6 @@ BuildRequires : pkgconfig(mlt++-7)
 BuildRequires : purpose-dev
 BuildRequires : rttr-dev
 BuildRequires : v4l-utils-dev
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 Kdenlive is a Free and Open Source video editing application, based on MLT
@@ -111,20 +108,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673314929
+export SOURCE_DATE_EPOCH=1673365435
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673314929
+export SOURCE_DATE_EPOCH=1673365435
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
 cp %{_builddir}/kdenlive-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
