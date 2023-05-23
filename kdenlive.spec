@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kdenlive
-Version  : 23.04.0
-Release  : 45
-URL      : https://download.kde.org/stable/release-service/23.04.0/src/kdenlive-23.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.0/src/kdenlive-23.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.0/src/kdenlive-23.04.0.tar.xz.sig
+Version  : 23.04.1
+Release  : 46
+URL      : https://download.kde.org/stable/release-service/23.04.1/src/kdenlive-23.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.1/src/kdenlive-23.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.1/src/kdenlive-23.04.1.tar.xz.sig
 Summary  : A non-linear video editor for Linux using the MLT video framework
 Group    : Development/Tools
 License  : BSD-3-Clause CC-BY-SA-4.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-3.0
@@ -101,15 +101,15 @@ man components for the kdenlive package.
 
 
 %prep
-%setup -q -n kdenlive-23.04.0
-cd %{_builddir}/kdenlive-23.04.0
+%setup -q -n kdenlive-23.04.1
+cd %{_builddir}/kdenlive-23.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682104588
+export SOURCE_DATE_EPOCH=1684885062
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,9 +120,23 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
+mkdir -p clr-build-avx2
+pushd clr-build-avx2
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -fno-lto -march=x86-64-v3 "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fno-lto -march=x86-64-v3 "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fno-lto -march=x86-64-v3 "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -fno-lto -march=x86-64-v3 "
+export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+%cmake ..
+make  %{?_smp_mflags}
+popd
 
 %install
-export SOURCE_DATE_EPOCH=1682104588
+export SOURCE_DATE_EPOCH=1684885062
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdenlive
 cp %{_builddir}/kdenlive-%{version}/COPYING %{buildroot}/usr/share/package-licenses/kdenlive/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f || :
@@ -139,16 +153,22 @@ cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{
 cp %{_builddir}/kdenlive-%{version}/LICENSES/LicenseRef-KDE-Accepted-LGPL.txt %{buildroot}/usr/share/package-licenses/kdenlive/e458941548e0864907e654fa2e192844ae90fc32 || :
 cp %{_builddir}/kdenlive-%{version}/README.md.license %{buildroot}/usr/share/package-licenses/kdenlive/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
 cp %{_builddir}/kdenlive-%{version}/packaging/flatpak/README.md.license %{buildroot}/usr/share/package-licenses/kdenlive/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4 || :
+pushd clr-build-avx2
+%make_install_v3  || :
+popd
 pushd clr-build
 %make_install
 popd
 %find_lang kdenlive
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
 
 %files bin
 %defattr(-,root,root,-)
+/V3/usr/bin/kdenlive
+/V3/usr/bin/kdenlive_render
 /usr/bin/kdenlive
 /usr/bin/kdenlive_render
 
@@ -773,6 +793,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
+/V3/usr/lib64/qt5/plugins/kf5/thumbcreator/mltpreview.so
 /usr/lib64/qt5/plugins/kf5/thumbcreator/mltpreview.so
 
 %files license
